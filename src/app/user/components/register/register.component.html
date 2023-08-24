@@ -1,23 +1,38 @@
 <div
-  class="border-neutral-950 shadow-xl overflow-hidden rounded-3xl bg-white ml-auto mt-[5%] mr-auto absolute inset-x-0 border-solid border-y-2 border-x-2 w-[500px] h-[500px]"
+  class="border-neutral-950 shadow-xl overflow-hidden rounded-3xl bg-white absolute inset-0 mx-auto my-auto w-[500px] h-[500px]"
 >
   <div class="relative h-[50px] mt-[20%]">
     <h1 class="text-center relative mt-[5%] text-2xl font-bold">
       Sign up to Social Network
     </h1>
-    <form class="text-center relative mt-[5%]">
+    <form
+      class="text-center relative mt-[5%]"
+      [formGroup]="this.form"
+      (ngSubmit)="onSubmit()"
+    >
       <label class="font-bold">Username:</label><br />
       <input
         class="bg-slate-100 rounded-3xl pl-2 pr-2"
         type="text"
         placeholder="Username"
+        FormControlName="username"
       /><br />
       <label class="font-bold">E-mail:</label><br />
-      <input class="bg-slate-100 rounded-3xl pl-2 pr-2" type="text" placeholder="E-mail"/><br />
+      <input
+        class="bg-slate-100 rounded-3xl pl-2 pr-2"
+        type="text"
+        placeholder="E-mail"
+        FormControlName="email"
+      /><br />
       <label class="font-bold">Password:</label><br />
-      <input class="bg-slate-100 rounded-3xl pl-2 pr-2" type="text" placeholder="password" /><br />
+      <input
+        class="bg-slate-100 rounded-3xl pl-2 pr-2"
+        type="text"
+        placeholder="Password"
+        FormControlName="password"
+      /><br />
       <button
-        class="bg-slate-100 rounded-2xl relative mt-[8px] w-[20%] text-center"
+        class="bg-slate-100 rounded-2xl relative mt-[10%] w-[20%] text-center"
       >
         Sign up
       </button>

@@ -1,5 +1,8 @@
 import {Component} from '@angular/core'
-import {ReactiveFormsModule} from '@angular/forms'
+import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms'
+import {Store} from '@ngrx/store'
+import {register} from '../../store/actions'
+import {RegisterRequestInterface} from '../../types/RegisterRequestInterface'
 
 @Component({
   selector: 'sc-register',
@@ -8,5 +11,17 @@ import {ReactiveFormsModule} from '@angular/forms'
   imports: [ReactiveFormsModule],
 })
 export class RegisterComponent {
-  constructor() {}
+  form = this.fb.nonNullable.group({
+    username: ['', Validators.required],
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+  })
+
+  constructor(private fb: FormBuilder, private store: Store) {}
+
+  onSubmit() {
+    const request: RegisterRequestInterface = this.form.getRawValue()
+
+    this.store.dispatch(register({request}))
+  }
 }
