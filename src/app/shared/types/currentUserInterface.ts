@@ -1,8 +1,5 @@
-export interface CurrentUserInterface { 
-    username: string;
-    email: string;
-    _id: string;
-    accessToken: string;
-    friendRequests: string[];
-    friends: string[]
+export interface CurrentUserInterface {
+  _id: string
+  email: string
+  accessToken: string
 }
