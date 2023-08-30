@@ -5,15 +5,17 @@ import {authActions} from '../../store/actions'
 import {RegisterRequestInterface} from '../../types/RegisterRequestInterface'
 import {RouterLink} from '@angular/router'
 import {AuthStateInterface} from '../../types/authState.interface'
-import {selectIsSubmitting} from '../../store/reducers'
+import {selectIsSubmitting, selectValidationErrors} from '../../store/reducers'
 import {CommonModule} from '@angular/common'
 import {UserService} from '../../services/user.service'
+import {combineLatest} from 'rxjs'
+import { BackendErrorMessages } from 'src/app/shared/components/backendErrorMessages/backendErrorMessages.component'
 
 @Component({
   selector: 'sc-register',
   templateUrl: './register.component.html',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, CommonModule],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule, BackendErrorMessages],
 })
 export class RegisterComponent {
   form = this.fb.nonNullable.group({
@@ -24,6 +26,11 @@ export class RegisterComponent {
   })
 
   isSubmitting$ = this.store.select(selectIsSubmitting)
+
+  data$ = combineLatest({
+    isSubmitting: this.store.select(selectIsSubmitting),
+    backendErrors: this.store.select(selectValidationErrors)
+  })
 
   constructor(
     private auth: UserService,
