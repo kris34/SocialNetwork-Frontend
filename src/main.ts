@@ -5,10 +5,10 @@ import {appRoutes} from './app/app.routes'
 import {provideState, provideStore} from '@ngrx/store'
 import {provideStoreDevtools} from '@ngrx/store-devtools'
 import {isDevMode} from '@angular/core'
-import { authFeatureKey, authReducer } from './app/user/store/reducers'
-import { provideHttpClient } from '@angular/common/http'
+import {authFeatureKey, authReducer} from './app/user/store/reducers'
+import {provideHttpClient} from '@angular/common/http'
 import * as authEffects from './app/user/store/effects'
-import { provideEffects } from '@ngrx/effects'
+import {provideEffects} from '@ngrx/effects'
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -21,7 +21,7 @@ bootstrapApplication(AppComponent, {
       maxAge: 25,
       logOnly: !isDevMode(),
       autoPause: true,
-      trace: false,
+      trace: true,
       traceLimit: 75,
     }),
   ],

@@ -13,7 +13,7 @@
       >
         <label class="font-bold">Username:</label><br />
         <input
-          class="bg-slate-100 rounded-3xl pl-2 pr-2 text-center"
+          class="bg-slate-100 rounded-3xl pl-2 pr-2 "
           type="text"
           placeholder="Username"
           formControlName="username"
@@ -40,14 +40,14 @@
           formControlName="repass"
         /><br />
         <button
-          class="bg-slate-100 rounded-2xl relative mt-[10%] w-[20%] text-center"
+          class="bg-slate-100 rounded-2xl relative mt-[3%] w-[20%] text-center"
         >
           Sign up
         </button>
       </form>
     </div>
     <mc-backend-error-messages
-    class="text-red-600 text-center relative top-[210px]"
+    class="text-red-600 text-center relative top-[250px]"
       *ngIf="data.backendErrors"
       [backendErrors]="data.backendErrors"
     ></mc-backend-error-messages>

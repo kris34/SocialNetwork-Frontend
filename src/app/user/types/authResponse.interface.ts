@@ -1,5 +1,7 @@
-import { CurrentUserInterface } from 'src/app/shared/types/currentUserInterface';
+import {CurrentUserInterface} from 'src/app/shared/types/currentUserInterface'
 
-export interface AuthResponseInterface { 
-    user: CurrentUserInterface
+export interface AuthResponseInterface {
+  _id: string
+  email: string
+  accessToken: string
 }

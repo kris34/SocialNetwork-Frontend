@@ -38,5 +38,5 @@ export const {
   selectIsSubmitting,
   selectIsLoading,
   selectCurrentUser,
-  selectValidationErrors
+  selectValidationErrors,
 } = authFeature
