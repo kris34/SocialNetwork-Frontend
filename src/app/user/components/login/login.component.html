@@ -4,20 +4,13 @@
     >
       <div class="relative h-[50px] mt-[20%]">
         <h1 class="text-center relative mt-[5%] text-2xl font-bold">
-          Sign up to Social Network
+          Sign in to Social Network
         </h1>
         <form
           class="text-center relative mt-[5%]"
           [formGroup]="form"
           (ngSubmit)="onSubmit()"
         >
-          <label class="font-bold">Username:</label><br />
-          <input
-            class="bg-slate-100 rounded-3xl pl-2 pr-2 "
-            type="text"
-            placeholder="Username"
-            formControlName="username"
-          /><br />
           <label class="font-bold">E-mail:</label><br />
           <input
             class="bg-slate-100 rounded-3xl pl-2 pr-2"
@@ -32,17 +25,11 @@
             placeholder="Password"
             formControlName="password"
           /><br />
-          <label class="font-bold">Re-Pass:</label><br />
-          <input
-            class="bg-slate-100 rounded-3xl pl-2 pr-2"
-            type="password"
-            placeholder="repeat-password"
-            formControlName="repass"
-          /><br />
+         
           <button
             class="bg-slate-100 rounded-2xl relative mt-[3%] w-[20%] text-center"
           >
-            Sign up
+            Sign in
           </button>
         </form>
       </div>

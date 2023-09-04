@@ -5,6 +5,10 @@ import {Store} from '@ngrx/store'
 import {RouterLink} from '@angular/router'
 import {CommonModule} from '@angular/common'
 import {BackendErrorMessages} from 'src/app/shared/components/backendErrorMessages/backendErrorMessages.component'
+import {combineLatest} from 'rxjs'
+import {selectIsSubmitting, selectValidationErrors} from '../../store/reducers'
+import {authActions} from '../../store/actions'
+import {LoginRequestInterface} from '../../types/LoginRequest.interface'
 
 @Component({
   selector: 'sc-login',
@@ -23,11 +27,23 @@ export class LoginComponent {
     password: ['', [Validators.required]],
   })
 
+  isSubmitting$ = this.store.select(selectIsSubmitting)
+
+  data$ = combineLatest({
+    isSubmitting: this.store.select(selectIsSubmitting),
+    backendErrors: this.store.select(selectValidationErrors),
+  })
+
   constructor(
     private fb: FormBuilder,
     private auth: UserService,
     private store: Store
   ) {}
 
-  onSubmit() {}
+  onSubmit() {
+    const request: LoginRequestInterface = this.form.getRawValue()
+     console.log(request);
+     
+    this.store.dispatch(authActions.login({request}))
+  }
 }
