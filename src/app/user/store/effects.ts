@@ -48,4 +48,45 @@ export const RedirectAfterRegisterEffect = createEffect(
   {functional: true, dispatch: false}
 )
 
+export const loginEffect = createEffect(
+  (
+    actions$ = inject(Actions),
+    authService = inject(UserService),
+    persistanceService = inject(PersistanceService)
+  ) => {
+    return actions$.pipe(
+      ofType(authActions.login),
+      switchMap(({request}) => {
+        return authService.login(request).pipe(
+          map((currentUser: CurrentUserInterface) => {
+            persistanceService.set('accessToken', currentUser)
+            return authActions.loginSuccess({currentUser})
+          }),
+          catchError((error: HttpErrorResponse) => {
+            return of(
+              authActions.loginFailure({
+                errors: error.error,
+              })
+            )
+          })
+        )
+      })
+    )
+  },
+  {functional: true}
+)
+
+export const RedirectAfterLoginEffect = createEffect(
+  (actions$ = inject(Actions), router = inject(Router)) => { 
+     return actions$.pipe(
+      ofType(authActions.loginSuccess),
+      tap(() => { 
+        router.navigateByUrl('/')
+      })
+     )
+  },
+  {functional: true, dispatch: false}
+)
+
+
 

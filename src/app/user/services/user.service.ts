@@ -5,6 +5,7 @@ import {Observable, map} from 'rxjs'
 import {CurrentUserInterface} from 'src/app/shared/types/currentUserInterface'
 import {AuthResponseInterface} from '../types/authResponse.interface'
 import {environment} from 'src/environments/environment.development'
+import {LoginRequestInterface} from '../types/LoginRequest.interface'
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +19,13 @@ export class UserService {
     return this.http
       .post<AuthResponseInterface>(url, data)
       .pipe(map((response) => response))
+  }
+
+  login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+    const url = environment.apiURL + '/user/login'
+
+    return this.http
+      .post<AuthResponseInterface>(url, data)
+      .pipe(map((res) => res))
   }
 }
