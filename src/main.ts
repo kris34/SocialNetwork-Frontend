@@ -6,13 +6,14 @@ import {provideState, provideStore} from '@ngrx/store'
 import {provideStoreDevtools} from '@ngrx/store-devtools'
 import {isDevMode} from '@angular/core'
 import {authFeatureKey, authReducer} from './app/user/store/reducers'
-import {provideHttpClient} from '@angular/common/http'
+import {provideHttpClient, withInterceptors} from '@angular/common/http'
 import * as authEffects from './app/user/store/effects'
 import {provideEffects} from '@ngrx/effects'
+import { authInterceptor } from './app/user/services/authinterceptor'
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([authInterceptor])),
     provideRouter(appRoutes),
     provideStore(),
     provideState(authFeatureKey, authReducer),

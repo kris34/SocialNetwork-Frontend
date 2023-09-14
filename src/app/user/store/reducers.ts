@@ -34,7 +34,7 @@ const authFeature = createFeature({
       isSubmitting: true,
       validationErrors: null,
     })),
-    on(authActions.loginSuccess , (state, action) => ({
+    on(authActions.loginSuccess, (state, action) => ({
       ...state,
       isSubmitting: false,
       validationErrors: null,
@@ -44,6 +44,19 @@ const authFeature = createFeature({
       ...state,
       isSubmitting: false,
       validationErrors: action.errors,
+    })),
+    on(authActions.getCurrentUser, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(authActions.getCurrentUserSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      currentUser: null,
+    })),
+    on(authActions.getCurrentUserFailure, (state) => ({
+      ...state,
+      validationErrors: null,
     }))
   ),
 })
