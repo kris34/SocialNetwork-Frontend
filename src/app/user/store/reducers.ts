@@ -52,7 +52,7 @@ const authFeature = createFeature({
     on(authActions.getCurrentUserSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      currentUser: null,
+      currentUser: action.currentUser ,
     })),
     on(authActions.getCurrentUserFailure, (state) => ({
       ...state,

@@ -14,7 +14,6 @@ import {faHome} from '@fortawesome/free-solid-svg-icons'
 })
 export class TopBarComponent {
   homeIcon = faHome
-  
 
   data$ = combineLatest({
     currentUser: this.store.select(selectCurrentUser),

@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core'
+import {Inject, Injectable} from '@angular/core'
 import {HttpClient} from '@angular/common/http'
 import {RegisterRequestInterface} from '../types/RegisterRequestInterface'
 import {Observable, map} from 'rxjs'
@@ -6,7 +6,6 @@ import {CurrentUserInterface} from 'src/app/shared/types/currentUserInterface'
 import {AuthResponseInterface} from '../types/authResponse.interface'
 import {environment} from 'src/environments/environment.development'
 import {LoginRequestInterface} from '../types/LoginRequest.interface'
-import { getSession } from 'src/app/shared/components/session/session'
 
 @Injectable({
   providedIn: 'root',
@@ -32,10 +31,9 @@ export class UserService {
 
   getCurrentUser(): Observable<CurrentUserInterface> {
     const url = environment.apiURL + '/user/get'
+
     return this.http
-      .get<AuthResponseInterface>(url, {
-        headers: {'X-Authorization': getSession().accessToken},
-      })
+      .get<AuthResponseInterface>(url)
       .pipe(map((res) => res))
   }
 }
