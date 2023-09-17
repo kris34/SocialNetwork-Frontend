@@ -7,14 +7,15 @@ import {selectCurrentUser} from 'src/app/user/store/reducers'
 import {faHome} from '@fortawesome/free-solid-svg-icons'
 import { RegisterComponent } from 'src/app/user/components/register/register.component'
 import { LoginComponent } from 'src/app/user/components/login/login.component'
+import { RouterLink } from '@angular/router'
 
 @Component({
-  selector: 'mc-topbar',
-  templateUrl: './topBar.component.html',
+  selector: 'mc-leftbar',
+  templateUrl: './leftBar.component.html',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, RegisterComponent, LoginComponent],
+  imports: [CommonModule, FontAwesomeModule, RegisterComponent, LoginComponent, RouterLink],
 })
-export class TopBarComponent {
+export class LeftBarComponent {
   homeIcon = faHome
 
   data$ = combineLatest({
