@@ -1,11 +1,11 @@
 <ng-container *ngIf="data$ | async as data">
-  <div
-    class="absolute inset-y-0 left-0 w-[25%] border-r-[1px] border-solid border-slate-100"
-  ></div>
   <ng-container *ngIf="data.currentUser">
-  <p>have current user</p>
+    <div
+      class="absolute inset-y-0 left-0 w-[25%] border-r-[1px] border-solid border-slate-300"
+    ></div>
+    <p>have current user</p>
   </ng-container>
   <ng-container *ngIf="data.currentUser === undefined">
-<p>have no current user</p>
+   <sc-login></sc-login>
   </ng-container>
 </ng-container>

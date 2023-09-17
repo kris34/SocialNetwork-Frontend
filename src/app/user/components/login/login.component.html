@@ -33,10 +33,14 @@
         </button>
       </form>
     </div>
+
     <mc-backend-error-messages
       class="text-red-600 text-center relative top-[170px]"
       *ngIf="data.backendErrors"
       [backendErrors]="data.backendErrors"
     ></mc-backend-error-messages>
+    <div class="text-black text-center absolute top-[85%] left-[18%]">
+      Don't have an account? Sign up <a routerLink="/register">here!</a>
+    </div>
   </div>
 </ng-container>
