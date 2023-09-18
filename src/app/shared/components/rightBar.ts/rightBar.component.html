@@ -1,12 +1,8 @@
 <ng-container *ngIf="data$ | async as data">
   <ng-container *ngIf="data.currentUser">
     <div
-      class="absolute right-[20%] inset-y-0 border-r-[1px] border-solid border-slate-300"
-    >
-      <h2
-        class="text-white text-center font-bold font-size text-2xl relative top-[3%]"
-      ></h2>
-    </div>
+      class="w-[20%] fixed h-[100%] border-l-[1px] right-0 border-solid border-slate-100"
+    ></div>
   </ng-container>
   <ng-container *ngIf="data.currentUser === undefined">
     <sc-login></sc-login>

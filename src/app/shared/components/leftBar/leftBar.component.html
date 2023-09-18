@@ -1,16 +1,37 @@
 <ng-container *ngIf="data$ | async as data">
   <ng-container *ngIf="data.currentUser">
     <div
-      class="absolute inset-y-0 w-[20%] border-r-[1px] border-solid border-slate-300"
+      class="w-[20%] fixed h-[100%] border-r-[1px] border-solid border-slate-300"
     >
       <h2
-        class="text-white text-center font-bold font-size text-2xl relative top-[3%]"
+        class="text-center font-bold text-white w-[100%] absolute top-[50px] text-xl"
       >
-        <a routerLink="/">Social Network</a>
+        Social Network
       </h2>
+      <nav class="flex flex-col items-center absolute w-[100%] top-[100px]">
+        <a routerLink="/" class="text-white relative">
+          <fa-icon
+            [styles]="{stroke: 'white', color: 'white'}"
+            [icon]="homeIcon"
+            class="absolute right-[50px] bottom-[2px]"
+          ></fa-icon
+          >Home</a
+        >
+       <!--  <a routerLink="/" class="text-white">Home</a>
+        <a routerLink="/" class="text-white">Home</a>
+        <a routerLink="/" class="text-white">Home</a> -->
+      </nav>
     </div>
   </ng-container>
   <ng-container *ngIf="data.currentUser === undefined">
     <sc-login></sc-login>
   </ng-container>
 </ng-container>
+
+<!-- <fa-icon
+              [styles]="{stroke: 'white', color: 'white'}"
+              [icon]="homeIcon"
+              class="absolute flex  mt-[3px] ml-[10px] "
+            ></fa-icon
+            ><div class="ml-[60px] mt-[3px]">Home</div></a
+          > -->
