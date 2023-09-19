@@ -1,6 +1,41 @@
 <ng-container *ngIf="data$ | async as data">
   <ng-container *ngIf="data.currentUser">
     <div
+      class="h-[100%] w-[20%] fixed border-r-[1px] border-solid border-slate-300"
+    >
+      <h2 class="text-white text-center font-bold mt-[50px]">Social Network</h2>
+      <div class="w-[150px] h-[100%] ml-[50px] border-dotted border-slate-300">
+        <div class="mt-[50px]">
+          <li class="text-white list-none border-b-[1px] mb-[10px] w-[50%]">
+            <a routerLink="/">
+              <fa-icon
+                [styles]="{stroke: 'white', color: 'white'}"
+                [icon]="homeIcon"
+                class="mr-[10px]"
+              ></fa-icon
+              >Home</a
+            >
+          </li>
+          <li class="text-white list-none border-b-[1px] mb-[10px] w-[50%]">
+            <a routerLink="/">
+              <fa-icon
+                [styles]="{stroke: 'white', color: 'white'}"
+                [icon]="icon2"
+                class="mr-[14px]"
+              ></fa-icon
+              >Profile</a
+            >
+          </li>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="data.currentUser === undefined">
+    <sc-login></sc-login>
+  </ng-container>
+</ng-container>
+
+<!-- <div
       class="w-[20%] fixed h-[100%] border-r-[1px] border-solid border-slate-300"
     >
       <h2
@@ -9,7 +44,7 @@
         Social Network
       </h2>
       <nav class="flex flex-col items-center absolute w-[100%] top-[100px]">
-        <a routerLink="/" class="text-white relative">
+        <a routerLink="/" class="text-white relative ">
           <fa-icon
             [styles]="{stroke: 'white', color: 'white'}"
             [icon]="homeIcon"
@@ -17,21 +52,15 @@
           ></fa-icon
           >Home</a
         >
-       <!--  <a routerLink="/" class="text-white">Home</a>
+        <a routerLink="/" class="text-white ">
+          <fa-icon
+            [styles]="{stroke: 'white', color: 'white'}"
+            [icon]="icon2"
+            class="absolute right-[50px] bottom-[2px]"
+          ></fa-icon
+          >Homee</a
+        >
         <a routerLink="/" class="text-white">Home</a>
-        <a routerLink="/" class="text-white">Home</a> -->
+        <a routerLink="/" class="text-white">Home</a> 
       </nav>
-    </div>
-  </ng-container>
-  <ng-container *ngIf="data.currentUser === undefined">
-    <sc-login></sc-login>
-  </ng-container>
-</ng-container>
-
-<!-- <fa-icon
-              [styles]="{stroke: 'white', color: 'white'}"
-              [icon]="homeIcon"
-              class="absolute flex  mt-[3px] ml-[10px] "
-            ></fa-icon
-            ><div class="ml-[60px] mt-[3px]">Home</div></a
-          > -->
+    </div> -->
