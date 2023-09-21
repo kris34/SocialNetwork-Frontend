@@ -1,7 +1,7 @@
 <ng-container *ngIf="data$ | async as data">
   <ng-container *ngIf="data.currentUser">
     <div
-      class="h-[100%] w-[20%] fixed border-r-[1px] border-solid border-slate-300"
+      class="h-[100%] w-[20%] fixed border-r-[1px] border-solid border-custom-grey"
     >
       <h2 class="text-white text-2xl text-center font-bold mt-[50px]">
         <a routerLink="/"> Social Network</a>
@@ -47,6 +47,19 @@
               >Saved</a
             >
           </li>
+         
+          <li
+          class="text-white text-2xl duration-300 rounded-3xl list-none mb-[20px] mt-[250%] w-[100%] pl-[5px] hover:bg-custom-grey"
+        >
+          <a routerLink="/">
+            <fa-icon
+              [styles]="{stroke: 'white', color: 'white'}"
+              [icon]="logoutIcon"
+              class="mr-[14px]"
+            ></fa-icon
+            >Log Out</a
+          >
+        </li>
         </div>
       </div>
     </div>

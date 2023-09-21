@@ -1,12 +1,14 @@
 <ng-container *ngIf="data$ | async as data">
   <ng-container *ngIf="data.currentUser">
     <div
-      class="w-[20%] fixed h-[100%] border-l-[1px] right-0 border-solid border-slate-100"
+      class="w-[20%] fixed h-[100%] border-l-[1px] right-0 border-solid border-custom-grey"
     >
-    <p class="text-white">{{data.currentUser.username}}</p></div>
+      <h2 class="text-white text-xl text-center font-bold mt-[50px]">
+        Welcome, {{ data.currentUser.username }}
+      </h2>
+    </div>
   </ng-container>
   <ng-container *ngIf="data.currentUser === undefined">
-  
     <sc-login></sc-login>
   </ng-container>
 </ng-container>

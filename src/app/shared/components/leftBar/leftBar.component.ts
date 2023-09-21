@@ -4,7 +4,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
 import {Store} from '@ngrx/store'
 import {combineLatest} from 'rxjs'
 import {selectCurrentUser} from 'src/app/user/store/reducers'
-import {faFloppyDisk, faHome, faRss, faUser } from '@fortawesome/free-solid-svg-icons'
+import {faFloppyDisk, faHome, faRightFromBracket, faRss, faUser } from '@fortawesome/free-solid-svg-icons'
 import { RegisterComponent } from 'src/app/user/components/register/register.component'
 import { LoginComponent } from 'src/app/user/components/login/login.component'
 import { RouterLink } from '@angular/router'
@@ -19,6 +19,7 @@ export class LeftBarComponent {
   homeIcon = faHome
   userIcon = faUser
   savedIcon = faFloppyDisk
+  logoutIcon = faRightFromBracket
 
   data$ = combineLatest({
     currentUser: this.store.select(selectCurrentUser),
