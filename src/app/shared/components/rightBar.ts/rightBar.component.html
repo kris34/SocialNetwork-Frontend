@@ -2,9 +2,11 @@
   <ng-container *ngIf="data.currentUser">
     <div
       class="w-[20%] fixed h-[100%] border-l-[1px] right-0 border-solid border-slate-100"
-    ></div>
+    >
+    <p class="text-white">{{data.currentUser.username}}</p></div>
   </ng-container>
   <ng-container *ngIf="data.currentUser === undefined">
+  
     <sc-login></sc-login>
   </ng-container>
 </ng-container>
