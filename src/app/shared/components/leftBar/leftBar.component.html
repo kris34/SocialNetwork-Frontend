@@ -3,10 +3,16 @@
     <div
       class="h-[100%] w-[20%] fixed border-r-[1px] border-solid border-slate-300"
     >
-      <h2 class="text-white text-center font-bold mt-[50px]">Social Network</h2>
-      <div class="w-[150px] h-[100%] ml-[50px] border-dotted border-slate-300">
+      <h2 class="text-white text-2xl text-center font-bold mt-[50px]">
+        <a routerLink="/"> Social Network</a>
+      </h2>
+      <div
+        class="w-[50%] text-center h-[100%] m-auto border-dotted border-slate-300"
+      >
         <div class="mt-[50px]">
-          <li class="text-white list-none border-b-[1px] mb-[10px] w-[50%]">
+          <li
+            class="text-white duration-300 text-2xl list-none mb-[20px] w-[90%] pl-[5px] hover:bg-custom-grey rounded-3xl"
+          >
             <a routerLink="/">
               <fa-icon
                 [styles]="{stroke: 'white', color: 'white'}"
@@ -16,14 +22,29 @@
               >Home</a
             >
           </li>
-          <li class="text-white list-none border-b-[1px] mb-[10px] w-[50%]">
+          <li
+            class="text-white text-2xl duration-300 rounded-3xl list-none mb-[20px] w-[90%] pl-[5px] hover:bg-custom-grey"
+          >
             <a routerLink="/">
               <fa-icon
                 [styles]="{stroke: 'white', color: 'white'}"
-                [icon]="icon2"
+                [icon]="userIcon"
                 class="mr-[14px]"
               ></fa-icon
               >Profile</a
+            >
+          </li>
+
+          <li
+            class="text-white text-2xl duration-300 rounded-3xl list-none mb-[20px] w-[90%] pl-[5px] hover:bg-custom-grey"
+          >
+            <a routerLink="/">
+              <fa-icon
+                [styles]="{stroke: 'white', color: 'white'}"
+                [icon]="savedIcon"
+                class="mr-[14px]"
+              ></fa-icon
+              >Saved</a
             >
           </li>
         </div>
