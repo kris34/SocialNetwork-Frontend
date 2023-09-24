@@ -6,8 +6,25 @@
       <h2 class="text-white text-xl text-center font-bold mt-[50px]">
         Welcome, {{ data.currentUser.username }}
       </h2>
+      <div
+        class="w-[50%] text-center h-[100%] m-auto border-dotted border-slate-300"
+      >
+        <div class="mt-[50px]">
+          <li
+            class="text-white duration-300 text-2xl list-none mb-[20px] w-[90%] pl-[5px] hover:bg-custom-grey rounded-3xl"
+          >
+            <a routerLink="/">
+              <fa-icon
+                [styles]="{stroke: 'white', color: 'white'}"
+                [icon]="friendsIcon"
+                class="mr-[10px]"
+              ></fa-icon
+              >Friends</a
+            >
+          </li>
+        </div>
+      </div>
     </div>
   </ng-container>
-  <ng-container *ngIf="data.currentUser === undefined">
-  </ng-container>
+  <ng-container *ngIf="data.currentUser === undefined"> </ng-container>
 </ng-container>
