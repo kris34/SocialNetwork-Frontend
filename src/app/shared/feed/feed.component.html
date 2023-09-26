@@ -1,0 +1,19 @@
+<ng-container *ngIf="data$ | async as data">
+  <ng-container *ngIf="data.currentUser">
+    <div
+      class="w-[50%] mr-auto ml-auto top-[50px] relative border-[1px] border-solid h-[50px] border-custom-grey"
+    >
+   
+      <input
+        type="text"
+        class="bg-black text-white h-[100%] text-xl w-[100%] outline-none"
+        placeholder="What is on your mind?"
+      />
+    </div>
+    <div
+      class="w-[50%] mr-auto ml-auto relative top-[80px] h-[100%] border-[1px] border-solid border-custom-grey"
+    >
+     
+    </div>
+  </ng-container>
+</ng-container>

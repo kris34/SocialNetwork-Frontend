@@ -11,4 +11,14 @@ export const appRoutes: Route[] = [
     loadChildren: () =>
       import('src/app/user/auth.routes').then((m) => m.loginRoutes),
   },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('src/app/user/auth.routes').then((m) => m.profileRoutes),
+  },
+  {
+    path: 'feed',
+    loadChildren: () =>
+      import('src/app/shared/shared.routes').then((m) => m.feedRoutes),
+  },
 ]
