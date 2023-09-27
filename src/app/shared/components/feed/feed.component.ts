@@ -25,20 +25,24 @@ import {selectError, selectFeedData, selectIsLoading} from './store/reducers'
 })
 export class FeedComponent implements OnInit {
   apiUrl: string = '/user/feed'
+  mySubscription: any
+  arrayFromRedux$: any
+  data: any
 
   data$ = combineLatest({
     currentUser: this.store.select(selectCurrentUser),
     isLoading: this.store.select(selectIsLoading),
     error: this.store.select(selectError),
-    feed: this.store.select(selectFeedData)
+    feed: this.store.select(selectFeedData),
   })
 
   constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.store.dispatch(feedActions.getFeed({url: this.apiUrl}))
+
     this.data$.subscribe(pipe((el) => {
-      console.log(el.feed);
+      console.log(el.feed?.feed);
       
     }))
   }

@@ -12,8 +12,11 @@
     <div
       class="w-[50%] mr-auto ml-auto relative top-[80px] h-[100%] border-[1px] border-solid border-custom-grey"
     >
-      <div *ngFor="let status of data.feed | keyvalue">
-      <p class="text-white">{{status.value}}</p>
+      <div *ngIf="data.feed">
+        <div *ngFor="let item of data.feed.feed">
+          <p class="text-white">{{item._ownerId}}: {{item.text  }}</p>
+
+        </div>
       </div>
     </div>
   </ng-container>
