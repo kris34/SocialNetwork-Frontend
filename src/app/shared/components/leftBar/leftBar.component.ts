@@ -22,7 +22,7 @@ export class LeftBarComponent {
   logoutIcon = faRightFromBracket
 
   data$ = combineLatest({
-    currentUser: this.store.select(selectCurrentUser),
+    currentUser: this.store.select(selectCurrentUser)
   })
 
   constructor(private store: Store) {}

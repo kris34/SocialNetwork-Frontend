@@ -8,16 +8,24 @@ import {isDevMode} from '@angular/core'
 import {authFeatureKey, authReducer} from './app/user/store/reducers'
 import {provideHttpClient, withInterceptors} from '@angular/common/http'
 import * as authEffects from './app/user/store/effects'
+import * as feedEffects from './app/shared/components/feed/store/effects'
 import {provideEffects} from '@ngrx/effects'
-import { authInterceptor } from './app/user/services/authinterceptor'
+import {authInterceptor} from './app/user/services/authinterceptor'
+import {
+  FeedFeatureKey,
+  feedReducer,
+} from './app/shared/components/feed/store/reducers'
+import {routerReducer, provideRouterStore} from '@ngrx/router-store'
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(withInterceptors([authInterceptor])),
     provideRouter(appRoutes),
-    provideStore(),
+    provideStore({router: routerReducer}),
+    provideRouterStore(),
     provideState(authFeatureKey, authReducer),
-    provideEffects(authEffects),
+    provideState(FeedFeatureKey, feedReducer),
+    provideEffects(authEffects, feedEffects),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),

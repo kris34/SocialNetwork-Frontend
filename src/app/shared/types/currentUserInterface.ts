@@ -3,5 +3,4 @@ export interface CurrentUserInterface {
   email: string
   accessToken: string
   username: string
-
 }

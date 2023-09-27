@@ -15,7 +15,6 @@ export class PersistanceService {
   get(key: string): unknown {
     try {
       const localStorageItem = localStorage.getItem(key)
-console.log(localStorageItem);
 
       return localStorageItem ? JSON.parse(localStorageItem).accessToken : null
     } catch (err) {
