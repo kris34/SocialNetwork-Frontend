@@ -1,4 +1,4 @@
-import {Component} from '@angular/core'
+import {AfterViewInit, Component} from '@angular/core'
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms'
 import {UserService} from '../../services/user.service'
 import {Store} from '@ngrx/store'
@@ -9,6 +9,7 @@ import {combineLatest} from 'rxjs'
 import {selectIsSubmitting, selectValidationErrors} from '../../store/reducers'
 import {authActions} from '../../store/actions'
 import {LoginRequestInterface} from '../../types/LoginRequest.interface'
+import {feedActions} from 'src/app/shared/components/feed/store/actions'
 
 @Component({
   selector: 'sc-login',
@@ -21,7 +22,9 @@ import {LoginRequestInterface} from '../../types/LoginRequest.interface'
     BackendErrorMessages,
   ],
 })
-export class LoginComponent {
+export class LoginComponent   {
+  apiUrl: string = '/user/feed'
+
   form = this.fb.nonNullable.group({
     email: ['', [Validators.required]],
     password: ['', [Validators.required]],
@@ -40,9 +43,13 @@ export class LoginComponent {
     private store: Store
   ) {}
 
+
   onSubmit() {
     const request: LoginRequestInterface = this.form.getRawValue()
-     
     this.store.dispatch(authActions.login({request}))
+    this.fetchFeed()
+  }
+  fetchFeed(): void {
+    this.store.dispatch(feedActions.getFeed({url: this.apiUrl}))
   }
 }

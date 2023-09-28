@@ -47,25 +47,27 @@
               >Saved</a
             >
           </li>
-         
+
           <li
-          class="text-white text-2xl duration-300 rounded-3xl list-none mb-[20px] mt-[250%] w-[100%] pl-[5px] hover:bg-custom-grey"
-        >
-          <a routerLink="/">
-            <fa-icon
-              [styles]="{stroke: 'white', color: 'white'}"
-              [icon]="logoutIcon"
-              class="mr-[14px]"
-            ></fa-icon
-            >Log Out</a
+            class="text-white text-2xl duration-300 rounded-3xl list-none mb-[20px] mt-[250%] w-[100%] pl-[5px] hover:bg-custom-grey"
           >
-        </li>
+            <a routerLink="/">
+              <fa-icon
+                [styles]="{stroke: 'white', color: 'white'}"
+                [icon]="logoutIcon"
+                class="mr-[14px]"
+              ></fa-icon
+              >Log Out</a
+            >
+          </li>
         </div>
       </div>
     </div>
   </ng-container>
   <ng-container *ngIf="data.currentUser === undefined">
-    <sc-login></sc-login>
+    <h1 class="text-white">
+      have an account ? log in <a routerLink="/login">here</a>
+    </h1>
   </ng-container>
 </ng-container>
 

@@ -4,16 +4,29 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
 import {Store} from '@ngrx/store'
 import {combineLatest} from 'rxjs'
 import {selectCurrentUser} from 'src/app/user/store/reducers'
-import {faFloppyDisk, faHome, faRightFromBracket, faRss, faUser } from '@fortawesome/free-solid-svg-icons'
-import { RegisterComponent } from 'src/app/user/components/register/register.component'
-import { LoginComponent } from 'src/app/user/components/login/login.component'
-import { RouterLink } from '@angular/router'
+import {
+  faFloppyDisk,
+  faHome,
+  faRightFromBracket,
+  faRss,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
+import {RegisterComponent} from 'src/app/user/components/register/register.component'
+import {LoginComponent} from 'src/app/user/components/login/login.component'
+import {RouterLink} from '@angular/router'
+import {feedActions} from '../feed/store/actions'
 
 @Component({
   selector: 'mc-leftbar',
   templateUrl: './leftBar.component.html',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, RegisterComponent, LoginComponent, RouterLink],
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    RegisterComponent,
+    LoginComponent,
+    RouterLink,
+  ],
 })
 export class LeftBarComponent {
   homeIcon = faHome
@@ -22,8 +35,12 @@ export class LeftBarComponent {
   logoutIcon = faRightFromBracket
 
   data$ = combineLatest({
-    currentUser: this.store.select(selectCurrentUser)
+    currentUser: this.store.select(selectCurrentUser),
   })
 
   constructor(private store: Store) {}
+
+  logout() {
+    localStorage.clear()
+  }
 }

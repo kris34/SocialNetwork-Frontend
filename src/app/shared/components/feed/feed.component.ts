@@ -20,7 +20,6 @@ import {selectError, selectFeedData, selectIsLoading} from './store/reducers'
     LoginComponent,
     LeftBarComponent,
     RightBarComponent,
-    CommonModule,
   ],
 })
 export class FeedComponent implements OnInit {
@@ -39,11 +38,15 @@ export class FeedComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.store.dispatch(feedActions.getFeed({url: this.apiUrl}))
+    this.fetchFeed()
+    this.data$.subscribe(
+      pipe((el) => {
+        console.log(el.feed?.feed)
+      })
+    )
+  }
 
-    this.data$.subscribe(pipe((el) => {
-      console.log(el.feed?.feed);
-      
-    }))
+  fetchFeed(): void {
+    this.store.dispatch(feedActions.getFeed({url: this.apiUrl}))
   }
 }
