@@ -16,6 +16,7 @@ import {
   feedReducer,
 } from './app/shared/components/feed/store/reducers'
 import {routerReducer, provideRouterStore} from '@ngrx/router-store'
+import {metaReducers} from './app/user/store/metaReducers'
 
 bootstrapApplication(AppComponent, {
   providers: [

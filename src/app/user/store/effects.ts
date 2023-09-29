@@ -76,6 +76,26 @@ export const loginEffect = createEffect(
   {functional: true}
 )
 
+export const logoutEffect = createEffect(
+  (
+    actions$ = inject(Actions),
+    persistanceService = inject(PersistanceService),
+    router = inject(Router)
+  ) => {
+    return actions$.pipe(
+      ofType(authActions.logoutCurrentUser),
+      tap(() => {
+        localStorage.clear()
+        router.navigateByUrl('/login')
+      }),
+      map(() => {
+        return {type: 'NO_ACTION'}
+      })
+    )
+  },
+  {functional: true}
+)
+
 export const RedirectAfterLoginEffect = createEffect(
   (actions$ = inject(Actions), router = inject(Router)) => {
     return actions$.pipe(
@@ -110,9 +130,8 @@ export const getCurrentUserEffect = createEffect(
             return authActions.getCurrentUserSuccess({currentUser})
           }),
           catchError((err) => {
-           
-            console.log(err);
-            
+            console.log(err)
+
             return of(authActions.getCurrentUserFailure())
           })
         )

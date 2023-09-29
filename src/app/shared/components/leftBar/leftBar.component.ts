@@ -13,8 +13,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import {RegisterComponent} from 'src/app/user/components/register/register.component'
 import {LoginComponent} from 'src/app/user/components/login/login.component'
-import {RouterLink} from '@angular/router'
+import {RouterLink, RouterOutlet} from '@angular/router'
 import {feedActions} from '../feed/store/actions'
+import {authActions} from 'src/app/user/store/actions'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mc-leftbar',
@@ -38,9 +40,9 @@ export class LeftBarComponent {
     currentUser: this.store.select(selectCurrentUser),
   })
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private router: Router) {}
 
   logout() {
-    localStorage.clear()
+    this.store.dispatch(authActions.logoutCurrentUser())
   }
 }

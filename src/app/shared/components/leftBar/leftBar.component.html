@@ -51,14 +51,14 @@
           <li
             class="text-white text-2xl duration-300 rounded-3xl list-none mb-[20px] mt-[250%] w-[100%] pl-[5px] hover:bg-custom-grey"
           >
-            <a routerLink="/">
+            <button (click)="logout()">
               <fa-icon
                 [styles]="{stroke: 'white', color: 'white'}"
                 [icon]="logoutIcon"
                 class="mr-[14px]"
               ></fa-icon
-              >Log Out</a
-            >
+              >Log Out
+            </button>
           </li>
         </div>
       </div>
