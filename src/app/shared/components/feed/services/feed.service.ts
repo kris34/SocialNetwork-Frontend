@@ -15,4 +15,8 @@ export class FeedService {
 
     return this.http.get<getFeedResponseInterface>(fullUrl).pipe(map((res) => res))
   }
+
+  postStatus(content: string) { 
+    
+  }
 }

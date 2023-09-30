@@ -1,14 +1,15 @@
 import {CommonModule} from '@angular/common'
 import {Component, OnInit} from '@angular/core'
 import {LoginComponent} from 'src/app/user/components/login/login.component'
-import {LeftBarComponent} from '../leftBar/leftBar.component'
-import {RightBarComponent} from '../rightBar.ts/rightBar.component'
+import {LeftBarComponent} from '../../leftBar/leftBar.component'
+import {RightBarComponent} from '../../rightBar.ts/rightBar.component'
 import {combineLatest, pipe} from 'rxjs'
 import {Store} from '@ngrx/store'
 import {selectCurrentUser} from 'src/app/user/store/reducers'
 import {RouterOutlet} from '@angular/router'
-import {feedActions} from './store/actions'
-import {selectError, selectFeedData, selectIsLoading} from './store/reducers'
+import {feedActions} from '../store/actions'
+import {selectError, selectFeedData, selectIsLoading} from '../store/reducers'
+import { CreateStatusComponent } from 'src/app/create-status/components/create-status.component'
 
 @Component({
   selector: 'mc-feed',
@@ -20,6 +21,7 @@ import {selectError, selectFeedData, selectIsLoading} from './store/reducers'
     LoginComponent,
     LeftBarComponent,
     RightBarComponent,
+    CreateStatusComponent
   ],
 })
 export class FeedComponent implements OnInit {
