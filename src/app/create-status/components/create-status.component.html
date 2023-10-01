@@ -1,9 +1,18 @@
 <div
-  class="w-[50%] mr-auto ml-auto top-[50px] relative border-[1px] border-solid h-[50px] border-custom-grey"
+  class="w-[50%] break-words mr-auto ml-auto top-[50px] relative border-[1px] border-solid h-[100px] border-custom-grey"
 >
-  <input
-    type="text"
-    class="bg-black text-white h-[100%] text-xl w-[100%] outline-none"
-    placeholder="What is on your mind?"
-  />
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <textarea
+      formControlName="text"
+      type="text"
+      class="bg-black break-words resize-none text-white h-[50px] ml-[10px] mt-[25px] text-xl w-[95%] outline-none"
+      placeholder="What is on your mind?"
+    ></textarea>
+
+    <button
+      class="text-white relative duration-300 rounded-3xl w-[10%] hover:bg-custom-grey float-right mr-[20px] mt-[-5px]"
+    >
+      Submit
+    </button>
+  </form>
 </div>

@@ -13,10 +13,8 @@ export class FeedService {
   getFeed(url: string): Observable<getFeedResponseInterface> {
     const fullUrl = environment.apiURL + url
 
-    return this.http.get<getFeedResponseInterface>(fullUrl).pipe(map((res) => res))
-  }
-
-  postStatus(content: string) { 
-    
+    return this.http
+      .get<getFeedResponseInterface>(fullUrl)
+      .pipe(map((res) => res))
   }
 }
