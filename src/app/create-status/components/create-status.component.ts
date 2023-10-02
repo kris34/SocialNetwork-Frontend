@@ -2,6 +2,11 @@ import {CommonModule} from '@angular/common'
 import {Component} from '@angular/core'
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms'
 import {RouterOutlet} from '@angular/router'
+import {Store} from '@ngrx/store'
+import {combineLatest} from 'rxjs'
+import {selectIsSubmitting, selectValidationErrors} from '../store/reducers'
+import { statusRequestInterface } from 'src/app/shared/types/statusRequest.interface'
+import { createStatusActions } from '../store/actions'
 
 @Component({
   selector: 'mc-create-status',
@@ -14,9 +19,17 @@ export class CreateStatusComponent {
     text: ['', [Validators.required]],
   })
 
-  constructor(private fb: FormBuilder) {}
+  data$ = combineLatest({
+    isSubmitting: this.store.select(selectIsSubmitting),
+    backEndErros: this.store.select(selectValidationErrors)
+  })
+
+  constructor(private fb: FormBuilder, private store: Store) {}
 
   onSubmit() {
-    console.log(this.form.value)
+    
+    const request: statusRequestInterface = this.form.getRawValue()
+    
+    this.store.dispatch(createStatusActions.createStatus({ request }))
   }
 }
