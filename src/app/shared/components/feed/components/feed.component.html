@@ -10,13 +10,15 @@
       />
     </div> -->
     <mc-create-status></mc-create-status>
-    <div
-      class="w-[50%] mr-auto ml-auto relative top-[80px] h-[100%] border-[1px] border-solid border-custom-grey"
-    >
+    <div class="w-[50%] mr-auto ml-auto relative top-[80px] h-[100%]">
       <div *ngIf="data.feed">
         <div *ngFor="let item of data.feed.feed">
-          <p class="text-white">{{item.username}}: {{item.text  }}</p>
-
+          <div class="text-white border-b border-custom-grey block mb-[5px]">
+            <span class="font-medium text-[18px] block mb-[5px]"
+              >{{ item.username }}:</span
+            >
+            <span>{{ item.text }}</span>
+          </div>
         </div>
       </div>
     </div>

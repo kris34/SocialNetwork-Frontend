@@ -5,8 +5,8 @@ import {RouterOutlet} from '@angular/router'
 import {Store} from '@ngrx/store'
 import {combineLatest} from 'rxjs'
 import {selectIsSubmitting, selectValidationErrors} from '../store/reducers'
-import { statusRequestInterface } from 'src/app/shared/types/statusRequest.interface'
-import { createStatusActions } from '../store/actions'
+import {statusRequestInterface} from 'src/app/shared/types/statusRequest.interface'
+import {createStatusActions} from '../store/actions'
 
 @Component({
   selector: 'mc-create-status',
@@ -21,15 +21,19 @@ export class CreateStatusComponent {
 
   data$ = combineLatest({
     isSubmitting: this.store.select(selectIsSubmitting),
-    backEndErros: this.store.select(selectValidationErrors)
+    backEndErros: this.store.select(selectValidationErrors),
   })
 
   constructor(private fb: FormBuilder, private store: Store) {}
 
   onSubmit() {
-    
     const request: statusRequestInterface = this.form.getRawValue()
-    
-    this.store.dispatch(createStatusActions.createStatus({ request }))
+    this.store.dispatch(createStatusActions.createStatus({request}))
+    this.form.reset()
+  }
+
+  onEnterKeyPress(event: any) {
+    event.preventDefault()
+    this.onSubmit()
   }
 }

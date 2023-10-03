@@ -1,16 +1,17 @@
 <div
-  class="w-[50%] break-words mr-auto ml-auto top-[50px] relative border-[1px] border-solid h-[100px] border-custom-grey"
+  class="w-[50%] mr-auto ml-auto top-[50px] relative border-[1px] border-solid h-[100px] border-custom-grey"
 >
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <textarea
       formControlName="text"
       type="text"
-      class="bg-black break-words resize-none text-white h-[50px] ml-[10px] mt-[25px] text-xl w-[95%] outline-none"
-      placeholder="What is on your mind?"
+      (keydown.enter)="onEnterKeyPress($event)"
+      class="bg-black grid-rows-6 break-words overflow-hidden resize-none relative text-white h-[95px] ml-[10px] text-xl w-[80%] outline-none"
+      placeholder="What is on your mind?!"
     ></textarea>
 
     <button
-      class="text-white relative duration-300 rounded-3xl w-[10%] hover:bg-custom-grey float-right mr-[20px] mt-[-5px]"
+      class="text-white duration-300 absolute rounded-3xl w-[10%] hover:bg-custom-grey bottom-0 right-0 float-right"
     >
       Submit
     </button>
