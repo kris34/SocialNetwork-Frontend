@@ -10,6 +10,8 @@ import {RouterOutlet} from '@angular/router'
 import {feedActions} from '../store/actions'
 import {selectError, selectFeedData, selectIsLoading} from '../store/reducers'
 import { CreateStatusComponent } from 'src/app/create-status/components/create-status.component'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @Component({
   selector: 'mc-feed',
@@ -21,7 +23,8 @@ import { CreateStatusComponent } from 'src/app/create-status/components/create-s
     LoginComponent,
     LeftBarComponent,
     RightBarComponent,
-    CreateStatusComponent
+    CreateStatusComponent,
+    FontAwesomeModule
   ],
 })
 export class FeedComponent implements OnInit {
@@ -29,6 +32,7 @@ export class FeedComponent implements OnInit {
   mySubscription: any
   arrayFromRedux$: any
   data: any
+  heartIcon = faHeart
 
   data$ = combineLatest({
     currentUser: this.store.select(selectCurrentUser),
@@ -51,4 +55,6 @@ export class FeedComponent implements OnInit {
   fetchFeed(): void {
     this.store.dispatch(feedActions.getFeed({url: this.apiUrl}))
   }
+
+  
 }

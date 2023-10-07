@@ -13,11 +13,19 @@
     <div class="w-[50%] mr-auto ml-auto relative top-[80px] h-[100%]">
       <div *ngIf="data.feed">
         <div *ngFor="let item of data.feed.feed">
-          <div class="text-white border-b border-custom-grey block mb-[5px]">
+          <div
+            class="text-white border-b border-custom-grey block mb-[5px] relative"
+          >
             <span class="font-medium text-[18px] block mb-[5px]"
               >{{ item.username }}:</span
             >
             <span>{{ item.text }}</span>
+            <button class="absolute  left-[95%] top-0">
+              <fa-icon
+                [styles]="{stroke: 'white', color: 'white'}"
+                [icon]="heartIcon"
+              ></fa-icon>
+            </button>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import {combineLatest} from 'rxjs'
 import {LoginComponent} from 'src/app/user/components/login/login.component'
 import {selectCurrentUser} from 'src/app/user/store/reducers'
 
+
 @Component({
   selector: 'mc-rightbar',
   templateUrl: './rightBar.component.html',
