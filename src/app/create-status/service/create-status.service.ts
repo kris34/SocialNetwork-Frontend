@@ -16,12 +16,13 @@ export class StatusService {
   createStatus(
     statusrequest: statusRequestInterface
   ): Observable<StatusInterface> {
-    console.log(statusrequest);
-    
+
     const fullUrl = environment.apiURL + '/status/create'
 
     return this.http
       .post<statusResponseInterface>(fullUrl, statusrequest)
       .pipe(map((response) => response.status))
   }
+
+ 
 }

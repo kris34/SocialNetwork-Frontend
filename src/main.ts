@@ -35,7 +35,7 @@ bootstrapApplication(AppComponent, {
     provideEffects(authEffects, statusEffects, feedEffects),
     provideStoreDevtools({
       maxAge: 25,
-      logOnly: !isDevMode(),
+      logOnly: !isDevMode(), 
       autoPause: true,
       trace: true,
       traceLimit: 75,

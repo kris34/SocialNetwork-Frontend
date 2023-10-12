@@ -6,7 +6,6 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
   const persitanceService = inject(PersistanceService)
   const token = persitanceService.get('x-authorization')
 
-
   request = request.clone({
     setHeaders: {
       'x-authorization': token ? `${token}` : '',

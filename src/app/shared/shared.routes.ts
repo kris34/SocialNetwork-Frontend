@@ -1,5 +1,5 @@
 import {Route} from '@angular/router'
-import {FeedComponent} from './components/feed/components/feed.component'
+import {FeedComponent} from './components/feed/components/feed/feed.component'
 
 export const feedRoutes: Route[] = [
   {

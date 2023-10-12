@@ -17,4 +17,6 @@ export class FeedService {
       .get<getFeedResponseInterface>(fullUrl)
       .pipe(map((res) => res))
   }
+
+ 
 }

@@ -6,7 +6,7 @@ import {Store} from '@ngrx/store'
 import {combineLatest} from 'rxjs'
 import {selectIsSubmitting, selectValidationErrors} from '../store/reducers'
 import {statusRequestInterface} from 'src/app/shared/types/statusRequest.interface'
-import {createStatusActions} from '../store/actions'
+import {StatusActions} from '../store/actions'
 
 @Component({
   selector: 'mc-create-status',
@@ -28,7 +28,7 @@ export class CreateStatusComponent {
 
   onSubmit() {
     const request: statusRequestInterface = this.form.getRawValue()
-    this.store.dispatch(createStatusActions.createStatus({request}))
+    this.store.dispatch(StatusActions.createStatus({request}))
     this.form.reset()
   }
 

@@ -8,5 +8,9 @@ export const feedActions = createActionGroup({
     'Get feed': props<{url: string}>(),
     'Get feed success': props<{feed: getFeedResponseInterface}>(),
     'Get feed failure': emptyProps(),
+
+    'Like status': props<{id: string}>(),
+    'Like status success': props<{feed: getFeedResponseInterface}>(),
+    'Like status failure': emptyProps(),
   },
 })

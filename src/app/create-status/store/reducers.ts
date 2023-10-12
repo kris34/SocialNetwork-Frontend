@@ -1,7 +1,7 @@
 import {routerNavigationAction} from '@ngrx/router-store'
 import {createFeature, createReducer, on} from '@ngrx/store'
 import { CreateStatusStateInterface } from '../state/createStatusState.interface'
-import { createStatusActions } from './actions'
+import { StatusActions } from './actions'
 
 const initialState: CreateStatusStateInterface = {
   isSubmitting: false,
@@ -12,15 +12,15 @@ const createStatusFeature = createFeature({
   name: 'createStatus',
   reducer: createReducer(
     initialState,
-    on(createStatusActions.createStatus, (state) => ({
+    on(StatusActions.createStatus, (state) => ({
       ...state,
       isSubmitting: true,
     })),
-    on(createStatusActions.createStatusSuccess, (state, action) => ({
+    on(StatusActions.createStatusSuccess, (state, action) => ({
       ...state,
       isSubmitting: false,
     })),
-    on(createStatusActions.createStatusFailure, (state, action) => ({
+    on(StatusActions.createStatusFailure, (state, action) => ({
       ...state,
       isSubmitting: false,
       validationErrors: action.errors,
