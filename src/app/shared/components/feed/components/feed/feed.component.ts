@@ -51,11 +51,7 @@ export class FeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchFeed()
-    this.data$.subscribe(
-      pipe((el) => {
-        console.log(el.feed?.feed)
-      })
-    )
+   
   }
 
   fetchFeed(): void {

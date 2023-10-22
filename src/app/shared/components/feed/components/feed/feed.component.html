@@ -20,8 +20,13 @@
               >{{ item.username }}:</span
             >
             <span>{{ item.text }}</span>
-
-            <mc-like [statusId]="item._id" [isLiked]="item.isLiked" [likesCount]="item.likesCount">
+            <mc-like
+              [statusId]="item._id"
+              [userId]="data.currentUser._id"
+              [likes]="item.likes"
+              [likesCount]="item.likes.length"
+              [isLiked]="item.likes.includes(data.currentUser._id)"
+            >
             </mc-like>
           </div>
         </div>
